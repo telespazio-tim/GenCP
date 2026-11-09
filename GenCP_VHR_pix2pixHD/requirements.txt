@@ -1,0 +1,15 @@
+# pix2pixHD Python dependencies
+#
+# Install PyTorch and torchvision separately with the CUDA 12.1 wheel index:
+#   python -m pip install torch==2.5.1 torchvision==0.20.1 --index-url https://download.pytorch.org/whl/cu121
+#
+# GDAL is intentionally not included here. Use a separate GDAL-enabled
+# environment for coordinate CSV generation, georeferencing, and mosaicking.
+
+numpy==2.2.6
+Pillow==12.0.0
+dominate==2.9.1
+scipy==1.15.3
+visdom==0.2.4
+requests==2.32.5
+ipykernel==7.3.0

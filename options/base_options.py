@@ -1,8 +1,10 @@
 import argparse
 import os
-from util import util
-import torch
+
 import models
+import torch
+from util import util
+
 import data
 
 
@@ -38,8 +40,9 @@ class BaseOptions():
         parser.add_argument('--init_gain', type=float, default=0.02, help='scaling factor for normal, xavier and orthogonal.')
         parser.add_argument('--no_dropout', action='store_true', help='no dropout for the generator')
         # dataset parameters
-        parser.add_argument('--dataset_mode', type=str, default='unaligned', help='chooses how datasets are loaded. [unaligned | aligned | single | colorization]')
+        parser.add_argument('--dataset_mode', type=str, default='unaligned', help='chooses how datasets are loaded. [unaligned | aligned | single | colorization | dem | dem_single | seasonal_aligned | seasonal_unaligned | seasonal_single]')
         parser.add_argument('--direction', type=str, default='AtoB', help='AtoB or BtoA')
+        parser.add_argument('--season', type=str, default=None, choices=[None, 'winter', 'summer'], help='season conditioning for seasonal_* datasets (required for seasonal_single at inference)')
         parser.add_argument('--serial_batches', action='store_true', help='if true, takes images in order to make batches, otherwise takes them randomly')
         parser.add_argument('--num_threads', default=4, type=int, help='# threads for loading data')
         parser.add_argument('--batch_size', type=int, default=1, help='input batch size')
@@ -135,5 +138,9 @@ class BaseOptions():
         if len(opt.gpu_ids) > 0:
             torch.cuda.set_device(opt.gpu_ids[0])
 
+        self.opt = opt
+        return self.opt
+        self.opt = opt
+        return self.opt
         self.opt = opt
         return self.opt

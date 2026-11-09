@@ -1,11 +1,12 @@
-import numpy as np
+import ntpath
 import os
 import sys
-import ntpath
 import time
-from . import util, html
-from subprocess import Popen, PIPE
+from subprocess import PIPE, Popen
 
+import numpy as np
+
+from . import html, util
 
 try:
     import wandb
@@ -138,6 +139,10 @@ class Visualizer():
                 for label, image in visuals.items():
                     image_numpy = util.tensor2im(image)
                     label_html_row += '<td>%s</td>' % label
+                    # Case RGBA input images: keep only RGB channels for visualization
+                    _, _, c = image_numpy.shape
+                    if c == 4:
+                        image_numpy = image_numpy[:, :, 0:3]
                     images.append(image_numpy.transpose([2, 0, 1]))
                     idx += 1
                     if idx % ncols == 0:
@@ -254,4 +259,6 @@ class Visualizer():
 
         print(message)  # print the message
         with open(self.log_name, "a") as log_file:
+            log_file.write('%s\n' % message)  # save the message
+            log_file.write('%s\n' % message)  # save the message
             log_file.write('%s\n' % message)  # save the message

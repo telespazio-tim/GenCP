@@ -1,0 +1,24 @@
+# Conda-forge compatible requirements for the VHR-OSM workflow
+# Python is intentionally not included here.
+# Create the environment first, e.g.:
+# conda create -n vhr_osm python=3.10 -y
+# conda activate vhr_osm
+#
+# Install with:
+# conda install -c conda-forge --file requirements_conda_compatible.txt -y
+
+numpy=1.26.*
+pandas=2.2.*
+geopandas=1.0.*
+rasterio
+gdal
+fiona
+pyogrio
+pyproj
+shapely
+osmnx>=2.0
+networkx
+requests
+pillow
+ipykernel
+geojson
