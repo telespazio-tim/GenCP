@@ -1,19 +1,7 @@
-# This file is part of the pytorch-CycleGAN-and-pix2pix project:
-# https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
-#
-# Copyright (c) 2017, Jun-Yan Zhu and Taesung Park
-# All rights reserved.
-#
-# This source code is licensed under the BSD 3-Clause License
-# found in the LICENSE file in the root directory of this source tree.
-#
-# Modifications made by telespazio-tim on 21/03/2025.
-
 import itertools
 import torch
 from .base_model import BaseModel
 from . import networks
-from torchmetrics.image.lpip import LearnedPerceptualImagePatchSimilarity
 
 
 class Pix2PixModel(BaseModel):
@@ -81,8 +69,10 @@ class Pix2PixModel(BaseModel):
             # define loss functions
             self.criterionGAN = networks.GANLoss(opt.gan_mode).to(self.device)
             self.criterionL1 = torch.nn.L1Loss()
-            # add perceptual metric during training
-            self.criterionLPIPS = LearnedPerceptualImagePatchSimilarity(net_type='vgg', reduction='mean').cuda()
+            if opt.LPIPS:
+                # imported here so that torchmetrics is only required with --LPIPS
+                from torchmetrics.image.lpip import LearnedPerceptualImagePatchSimilarity
+                self.criterionLPIPS = LearnedPerceptualImagePatchSimilarity(net_type='vgg', reduction='mean').to(self.device)
             # initialize optimizers; schedulers will be automatically created by function <BaseModel.setup>.
             self.optimizer_G = torch.optim.Adam(self.netG.parameters(), lr=opt.lr, betas=(opt.beta1, 0.999))
             self.optimizer_D = torch.optim.Adam(self.netD.parameters(), lr=opt.lr, betas=(opt.beta1, 0.999))
