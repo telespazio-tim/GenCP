@@ -68,7 +68,7 @@ For additional installation instructions and usage examples, see the [official N
 
 ## Data preparation
 
-Download the dataset from [test dataset](https://mega.nz/folder/aXohTBpB#W-MPbpq_E6RoCnHqz24-rw) and place the image folders in the project's `datasets/` directory. If `geo_coordinates.csv` is not included, generate it as described below.
+Download the dataset from [test dataset](https://zenodo.org/records/15044428) and place the image folders in the project's `datasets/` directory. If `geo_coordinates.csv` is not included, generate it as described below.
 
 Set `DATAROOT` to the dataset directory containing:
 
@@ -103,7 +103,7 @@ Download the pretrained generator weights using the link below.
 
 | Experiment | Weights |
 |---|---|
-| V2, coordinate bottleneck | [Model_V2_dataset_global_D3_allloss_aug_batch_coord_bottleneck](https://mega.nz/folder/SPxCGBoT#245fLh4Ot3JNWTp9aeRvDg) |
+| V2, coordinate bottleneck | [Model_V2_dataset_global_D3_allloss_aug_batch_coord_bottleneck](https://zenodo.org/records/15044428) |
 
 Place `200_net_G.pth` in `checkpoints/Model_V2_dataset_global_D3_allloss_aug_batch_coord_bottleneck/` and set `which_epoch` to `"200"`.
 
