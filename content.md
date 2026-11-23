@@ -26,15 +26,13 @@ GenCP solves this by generating synthetic GCP images using generative AI (Pix2Pi
 
 Sentinel-2 scale imagery with optional topography (DEM/hillshade) integration to account for terrain effects, and seasonal (summer/winter) generation.
 
-* Mean geometric error: ~0.7 pixel (7m)
-* RMSE: ~2.5 pixels (24m)
+* Mean geometric error: ~0.7 pixel for v1.0 (7m) and ~0.3 pixel for v2.0 with seasonality (3m)
 
 #### VHR — Very High Resolution (50cm)
 
 Pix2PixHD model generating sharper 50 cm imagery, with optional location-aware generation (geographic coordinates injected at the generator bottleneck).
 
-* Mean geometric error: ~0.6 pixel
-* RMSE: ~3 pixels
+* Mean geometric error: ~0.6 pixel for v1.0 and ~0.3 pixel for v2.0
 
 ## Workflow
 
