@@ -290,9 +290,11 @@ Quality control is done with [KARIOS](https://github.com/telespazio-tim/karios) 
 
 ### HR results
 
-The following figure illustrates geometric error distribution results obtained with KARIOS on a test site (not used for training) for RGB HR generated images. Results show a mean error around 0.7 pixel (7m) and a RMSE around 2.5 pixels (24m) due to outliers, mostly in rural areas.
+The following figure illustrates geometric error distribution results obtained with KARIOS on a test site (not used for training) for RGB HR generated images in v1.0 and v2.0 (with seasonality). 
 
-<img src="docs/images/karios_HR.png" alt="KARIOS geometric error distribution for HR generated images" width="600" height="500">
+<img src="docs/images/karios_HR.png" alt="KARIOS geometric error distribution for HR generated images in v1.0" width="500" height="400">
+
+<img src="docs/images/KARIOS_HR_seasonality.png" alt="KARIOS geometric error distribution for HR generated images in v2.0 with seasonality" width="800" height="350">
 
 The following configuration was used:
 
@@ -309,11 +311,23 @@ KLT Matching:
 *	laplacian_kernel_size: 7
 *	outliers_filtering: true
 
+
+**Summary of HR geometric error evaluation v1.0/v2.0:**
+
+| | Mean error | RMSE |
+| --- | --- | --- |
+| v1.0 | ~6m | ~24m |
+| v2.0 winter | ~3m | ~34m |
+| v2.0 summer | ~3m | ~28m |
+
+
 ### VHR results
 
-The following figure illustrates geometric error distribution results obtained with KARIOS on a test site (not used for training) for RGB VHR generated images. Results show a mean error around 0.6 pixel and a RMSE around 3 pixels.
+The following figure illustrates geometric error distribution results obtained with KARIOS on a test site (not used for training) for RGB VHR generated images in v1.0 and v2.0. 
 
-<img src="docs/images/karios_VHR.png" alt="KARIOS geometric error distribution for VHR generated images" width="600" height="500">
+<img src="docs/images/karios_VHR.png" alt="KARIOS geometric error distribution for VHR generated images in v1.0" width="500" height="400">
+
+<img src="docs/images/KARIOS_VHR_v2.png" alt="KARIOS geometric error distribution for VHR generated images in v2.0" width="500" height="350">
 
 The following configuration was used:
 
@@ -329,3 +343,12 @@ KLT Matching:
 *	laplacian_kernel_size: 7
 *	outliers_filtering: true
 
+**Summary of VHR geometric error evaluation v2.0:**
+
+| | Mean error | RMSE |
+| --- | --- | --- |
+| Ankara test site | 0.04m | 1.43m |
+| Munich test site | 0.12m | 1.20m |
+| Turin test site | 0.02m | 1.21m |
+| Toulouse test site | 0.28m | 1.29m |
+| Salon-de-Provence test site | 0.07m | 1.53m |
