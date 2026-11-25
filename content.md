@@ -32,7 +32,7 @@ Sentinel-2 scale imagery with optional topography (DEM/hillshade) integration to
 
 Pix2PixHD model generating sharper 50 cm imagery, with optional location-aware generation (geographic coordinates injected at the generator bottleneck).
 
-* Mean geometric error: ~0.6 pixel for v1.0 and ~0.3 pixel for v2.0
+* Mean geometric error: ~0.6 pixel for v1.0 and ~0.5 pixel for v2.0
 
 ## Workflow
 
